@@ -4,8 +4,9 @@
   ini_set('log-errors', '1');
   $p = __DIR__ . '\er.log';
   ini_set('error_log', $p);
+  ini_set('session.httponly', '1');
   // Информация о сервере;
   // phpinfo();
   echo getcwd();    // как узнать текущую папку;
   echo "<br>" . 'Пять больше одного:' . "<br>";
-  echo asert(5>1);
+  echo assert(5>1);

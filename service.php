@@ -10,3 +10,5 @@
   echo getcwd();    // как узнать текущую папку;
   echo "<br>" . 'Пять больше одного:' . "<br>";
   echo assert(5>1);
+  echo "<br>" . $_SERVER['REQUEST_URI'];
+  

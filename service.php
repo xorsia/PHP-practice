@@ -10,5 +10,15 @@
   echo getcwd();    // как узнать текущую папку;
   echo "<br>" . 'Пять больше одного:' . "<br>";
   echo assert(5>1);
-  echo "<br>" . $_SERVER['REQUEST_URI'];
-  
+  // получить адрес;
+  $ps = $_SERVER['REQUEST_URI'];
+  echo "<br>" . $ps;
+  $ps2 = __FILE__;
+  // работа с путем;
+  $mp = parse_url($ps2);
+  echo "<br>";
+  var_dump($mp);
+  // адресная строка в массив;
+  $stm = explode('\\', $ps2);
+  echo "<br>";
+  var_dump($stm);

@@ -7,7 +7,10 @@
       echo "<br>" . $this->a1;
     }
     public function hi() {
-
+      // пустая функция;
+    }
+    public function __get($t) {
+      return $this->$t = 6;
     }
   }
   $hq = new Mark();
@@ -20,3 +23,8 @@
   echo "<br>";
   // есть ли такой метод в классе;
   var_dump(method_exists('Mark', 'hi'));
+  // Сэтеры и гетэры и их работа;
+  echo "<br>" . 'Прочитаем несуществующее свойсво обьекта: ' . $hq->a22;
+  echo "<br>";
+  // Появилось ли в обьекте класса свойство, которого не было изначально;
+  var_dump(property_exists($hq, 'a22'));

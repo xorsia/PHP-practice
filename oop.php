@@ -7,10 +7,24 @@
       echo "<br>" . $this->a1;
     }
     public function hi() {
-      // пустая функция;
+      $this->yii();
     }
     public function __get($t) {
-      return $this->$t = 6;
+      return $this->$t = 'такое свойства не было, но оно создано';
+    }
+    public function __set($t1, $t2) {
+      // свойство создано и ему установлено значение, которое было передано;
+      return $this->$t1 = $t2;
+    }
+    public function yii() {
+      echo 'текст родительского класса' . "<br>";
+    }
+  }
+  class Avrelii extends Mark {
+    public function mr() {
+      $this->yii();
+      parent::hi();
+      echo 'текст дочернего класса' . "<br>";
     }
   }
   $hq = new Mark();
@@ -24,7 +38,13 @@
   // есть ли такой метод в классе;
   var_dump(method_exists('Mark', 'hi'));
   // Сэтеры и гетэры и их работа;
-  echo "<br>" . 'Прочитаем несуществующее свойсво обьекта: ' . $hq->a22;
-  echo "<br>";
+  echo "<br>" . 'Прочитаем несуществующее свойсво обьекта: ' . $hq->a22 . "<br>";
   // Появилось ли в обьекте класса свойство, которого не было изначально;
   var_dump(property_exists($hq, 'a22'));
+  // Появилось ли в обьекте класса свойство, которого не было изначально;
+  echo "<br>" . 'Установим значение несуществующего свойства обьекта класса: ' . $hq->a33 = 7 . "<br>";
+  var_dump(property_exists($hq, 'a33'));
+  $uq = new Avrelii();
+  echo "<br>";
+  $uq->mr();
+  $hq->hi();

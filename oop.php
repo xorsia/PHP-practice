@@ -30,6 +30,10 @@
     {
       return 'Это класс Avrelii';
     }
+    const HELLO = 'Константа класса Avrelii';
+    public function ps() {
+      return self::HELLO;
+    }
   }
   $hq = new Mark();
   echo "<br>";
@@ -51,5 +55,6 @@
   $uq = new Avrelii();
   echo "<br>";
   $uq->mr();
-  echo $uq;
+  echo $uq . "<br>";
+  echo $uq->ps() . "<br>";
   //$hq->hi();

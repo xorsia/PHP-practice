@@ -1,9 +1,12 @@
 <?php
 abstract class Abs {
   public $a = 'Абстрактный класс';
-  public $b = 1;
+  public static $b = 1;
   public function lio() {
-    echo "<br>" . $this->b++;
+    echo "<br>" . self::$b++;
+  }
+  public function lio2() {
+    echo "<br>" . static::$b++;
   }
 }
 class Fr extends Abs {
@@ -12,11 +15,12 @@ class Fr extends Abs {
     }
 }
 class De extends  Abs {
-
+  public static $b = 1;
 }
 $a = new Fr();
 $a->pa();
 $a->lio();
 $a->lio();
 $b = new De();
-$b->lio();
+$b->lio2();
+$b->lio2();

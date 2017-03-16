@@ -16,15 +16,19 @@
       // свойство создано и ему установлено значение, которое было передано;
       return $this->$t1 = $t2;
     }
-    public function yii() {
+    private function yii() {
       echo 'текст родительского класса' . "<br>";
     }
   }
   class Avrelii extends Mark {
     public function mr() {
-      $this->yii();
-      parent::hi();
+      //$this->yii(); не сработает, так как метод yii - private;
+      parent::hi();   // будет работать!
       echo 'текст дочернего класса' . "<br>";
+    }
+    public function __toString()
+    {
+      return 'Это класс Avrelii';
     }
   }
   $hq = new Mark();
@@ -47,4 +51,5 @@
   $uq = new Avrelii();
   echo "<br>";
   $uq->mr();
-  $hq->hi();
+  echo $uq;
+  //$hq->hi();

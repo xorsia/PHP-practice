@@ -2,7 +2,7 @@
   class Mark {
     public $a1 = 10;
     public function __construct($b = 3) {
-      echo $this->a1;
+      echo "<br>" . $this->a1;
       $this->a1 += 3;
       echo "<br>" . $this->a1;
     }
@@ -34,6 +34,10 @@
     public function ps() {
       return self::HELLO;
     }
+    public static $xb = 1;
+    public function wii() {
+      echo self::$xb++;
+    }
   }
   $hq = new Mark();
   echo "<br>";
@@ -54,7 +58,16 @@
   var_dump(property_exists($hq, 'a33'));
   $uq = new Avrelii();
   echo "<br>";
+  // Работа с parent;
   $uq->mr();
   echo $uq . "<br>";
+  // Метод вернет константу;
   echo $uq->ps() . "<br>";
+  // Статические свойства и методы;
+  $uq->wii();
+  $uq->wii();
+  $uq->wii();
+  $uq2 = new Avrelii();
+  echo "<br>";
+  $uq2->wii();
   //$hq->hi();

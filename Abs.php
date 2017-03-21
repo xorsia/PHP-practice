@@ -9,3 +9,4 @@ $a->lio();
 $b = new De();
 $b->lio2();
 $b->lio2();
+$c = new Sp();

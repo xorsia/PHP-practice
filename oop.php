@@ -1,46 +1,8 @@
 <?php
-  class Mark {
-    public $a1 = 10;
-    public function __construct($b = 3) {
-      echo "<br>" . $this->a1;
-      $this->a1 += 3;
-      echo "<br>" . $this->a1;
-    }
-    public function hi() {
-      $this->yii();
-    }
-    public function __get($t) {
-      return $this->$t = 'такое свойства не было, но оно создано';
-    }
-    public function __set($t1, $t2) {
-      // свойство создано и ему установлено значение, которое было передано;
-      return $this->$t1 = $t2;
-    }
-    private function yii() {
-      echo 'текст родительского класса' . "<br>";
-    }
-  }
-  class Avrelii extends Mark {
-    public function mr() {
-      //$this->yii(); не сработает, так как метод yii - private;
-      parent::hi();   // будет работать!
-      echo 'текст дочернего класса' . "<br>";
-    }
-    public function __toString()
-    {
-      return 'Это класс Avrelii';
-    }
-    const HELLO = 'Константа класса Avrelii';
-    public function ps() {
-      return self::HELLO;
-    }
-    public static $xb = 1;
-    public function wii() {
-      echo self::$xb++;
-    }
-  }
+  // Простая автозагурзка классов;
+  $p = __DIR__ . '\autoload.php';
+  require_once $p;
   $hq = new Mark();
-  echo "<br>";
   // есть ли такое свойство в классе;
   var_dump(property_exists($hq, 'a1'));
   echo "<br>";

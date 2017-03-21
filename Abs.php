@@ -1,22 +1,7 @@
 <?php
-abstract class Abs {
-  public $a = 'Абстрактный класс';
-  public static $b = 1;
-  public function lio() {
-    echo "<br>" . self::$b++;
-  }
-  public function lio2() {
-    echo "<br>" . static::$b++;
-  }
-}
-class Fr extends Abs {
-  public function pa () {
-  echo $this->a;
-    }
-}
-class De extends  Abs {
-  public static $b = 1;
-}
+// Простая автозагурзка классов;
+$p = __DIR__ . '\autoload.php';
+require_once $p;
 $a = new Fr();
 $a->pa();
 $a->lio();

@@ -1,4 +1,2 @@
 <?php
-class Sp extends Abs {
-
-}
+class Sp extends Abs {}

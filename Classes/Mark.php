@@ -5,6 +5,10 @@ class Mark {
         echo "<br>" . $this->a1;
         $this->a1 += 3;
         echo "<br>" . $this->a1;
+        if(!isset($_POST['word'])) {
+          //echo "<br>" . 'Неут ПОСТ';
+          throw new Exception('Нету Поста');
+        }
     }
     public function hi() {
         $this->yii();

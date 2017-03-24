@@ -29,7 +29,7 @@ class Myiterator implements Iterator {
   public function valid() {
     $key = key($this->obj);
     $b = ($key !== NULL && $key !== FALSE);
-    echo "<br>" . "верный: $var\n";
+    echo "<br>" . "верный: \n";
     return $b;
   }
 }

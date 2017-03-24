@@ -6,6 +6,7 @@ $loader = new Load();
 spl_autoload_register([$loader, 'loadclass']);
 $a = ['Один', 'Два', 'Три'];
 $it = new Myiterator($a);
-foreach ($it as $a => $b) {
+
+foreach ($it as $a) {
     //echo $a;
 }

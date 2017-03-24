@@ -10,9 +10,4 @@ error_reporting(E_ALL);
 // Создание класса для работы с ошибками-исключениями;
 $p = new Er();
 $p->hand();
-try {
-  $a = new Avrelii();
-}
-catch (Exception $e) {
-    echo $e->getFile();
-}
+$a = new Avrelii();

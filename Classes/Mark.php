@@ -7,8 +7,7 @@ class Mark {
         echo "<br>" . $this->a1;
         // Выкину исключение;
         if(!isset($tr)) {
-          //echo "<br>" . 'Неут ПОСТ';
-          throw new Er('Нету  переменной tr');
+          throw new FileEr('Нет данных');
         }
     }
     public function hi() {

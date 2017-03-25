@@ -6,6 +6,7 @@ class FileEr extends Er {
     parent::hand3($e);
     // А уже потом измененный метод hand3 дочернего класса;
     echo "<br>" . 'Использован родительский метод + дочерний класса ' . get_class($this);
+    throw new Exception();
   }
   public function hand4() {
     return 1;

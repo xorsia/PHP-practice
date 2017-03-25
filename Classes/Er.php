@@ -16,6 +16,9 @@ class Er extends Exception{
     }
   }
   public function hand3(\Exception $e) {
-    //echo "<br>" . 'Поймано исключение класса ' . get_class($e) . ' Текст ошибки: ' . $e->getMessage();
+    echo "<br>" . 'Поймано исключение класса ' . $this->hand4() . ' ' . get_class($e) . ' Текст ошибки: ' . $e->getMessage();
+  }
+  public function hand4() {
+    return 0;
   }
 }

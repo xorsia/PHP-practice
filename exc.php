@@ -13,8 +13,8 @@ try {
 }
 catch(FileEr $e) {
   $p2 = new FileEr();
-  $p2->hand();
-  throw new FileEr('Передадим в класс FileEr');
+  $p2->hand3($e);
+  //throw new FileEr('Передадим в класс FileEr');
 }
 catch(DataEr $e) {
   $p3 = new DataEr();
@@ -22,7 +22,7 @@ catch(DataEr $e) {
   throw new DataEr('Передадим в класс DataEr');
 }
 catch(Exception $e) {
-  echo 'Исключения остальные';
+  echo "<br>" . 'Исключения базового класса Exception';
 }
 $p1 = new Er();
 $p1->hand();

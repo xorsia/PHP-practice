@@ -7,7 +7,7 @@ class Mark {
     echo "<br>" . $this->a1;
     // Выкину исключение;
     if(!isset($tr)) {
-      throw new FileEr('Нет данных');
+      throw new DataEr('Нет данных');
     }
   }
   public function hi() {

@@ -30,7 +30,7 @@ try {
   finally {
     echo "<br>" . 'Текст после finally';
   //Выскочит нефатальная ошибка;
-  //include 'D:\test.php';
+  include 'D:\test.php';
   // Выскочит фатальная ошибка;
   //require 'D:\test.php';
   }

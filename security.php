@@ -5,7 +5,7 @@
   // Сессии;
   session_start();
   $_SESSION['artur'] = 'king';
-  echo $_SESSION['artur'];
+  echo $_SESSION['artur'] . '<br>';
   // Запрет перехвата id сессии, пишется перед закрытием сессии;
   session_regenerate_id();
   unset($_SESSION['artur']);
@@ -19,6 +19,21 @@ $b = filter_has_var(INPUT_POST, 'wr');
 var_dump($b);
 $c = filter_input(INPUT_POST, 'wr', FILTER_VALIDATE_INT);
 var_dump($c);
+// Правильная проверка и хранение паролей;
+// незащищенный пароль;
+$old_pass = '1234';
+// защищенный пароль;
+$p_hash = password_hash($old_pass, PASSWORD_DEFAULT);
+// Проверка пароля;
+// Пароль, который нужно проверить;
+$chek_pass = '1234';
+// Ф-ция проверки защищенного пароля;
+if(password_verify($chek_pass, $p_hash)) {
+  echo 'Пароль правильный';
+} else {
+  echo 'Пароль неверный';
+}
+
 ?>
 <!DOCTYPE html>
 <html>

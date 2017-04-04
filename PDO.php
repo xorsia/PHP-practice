@@ -26,13 +26,18 @@ var_dump($m[0]['Название товара']);
 
 */
 // Запрос с последовательной подстановкой;
-$sql = 'SELECT * FROM tabl1 WHERE Name=:tr';
+$sql = 'SELECT * FROM tabl1 WHERE Name=? AND Price=?';
 $sth = $dbh->prepare($sql);
-$a = 'Телевизор';
-$sth->execute([':tr'=>$a]);
+$a = 'Монитор';
+$b = 500;
+//$sth->bindValue(1, $a, PDO::PARAM_STR);
+$sth->bindValue(1, $a, PDO::PARAM_STR);
+$sth->bindValue(2, $b, PDO::PARAM_INT);
+$sth->execute();
 while ($row = $sth->fetch(PDO::FETCH_NUM)) {
   var_dump($row);
 }
+
 
 /*
 // Трансакции;

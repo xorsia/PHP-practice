@@ -26,10 +26,10 @@ var_dump($m[0]['Название товара']);
 
 */
 // Запрос с последовательной подстановкой;
-$sql = "SELECT * FROM tabl1 WHERE id=?";
+$sql = 'SELECT * FROM tabl1 WHERE Name=:tr';
 $sth = $dbh->prepare($sql);
-$a = 4;
-$sth->execute([$a]);
+$a = 'Телевизор';
+$sth->execute([':tr'=>$a]);
 while ($row = $sth->fetch(PDO::FETCH_NUM)) {
   var_dump($row);
 }

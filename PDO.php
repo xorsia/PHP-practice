@@ -26,9 +26,13 @@ var_dump($m[0]['Название товара']);
 
 */
 
+$allowed = ['Name', 'About', 'Price'];
+$values = ['Ноутбук', 'Средней категории', '900'];
+$sql = "INSERT INTO tabl1 (Name, About, Price) VALUES ('Ноутбук','Средней категории','900')";
+$stm = $dbh->prepare($sql);
+$stm->execute();
 
-
-
+/*
 // Трансакции;
 // Изменений в БД не будет, пока не будет завершена трансакция;
 try {
@@ -47,8 +51,10 @@ try {
     var_dump($row);
   }
   $dbh->commit();  // трансакция выполнена успешно;
+  echo "<br>" . $sth->rowcount() . "<br>";
 }
 catch(PDOException $e) {
   echo 'Ошибка' . $e->getMessage();
   $dbh->rollBack();  // откат трансакции;
 }
+*/

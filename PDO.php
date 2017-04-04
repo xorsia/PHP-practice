@@ -1,6 +1,6 @@
 <?php
-$dsn = '';
-$user = '';
+$dsn = 'mysql:dbname=test2;host=localhost;charset=utf8';
+$user = 'root';
 $password = '';
 try {
   $dbh = new PDO($dsn, $user, $password); // передача в конструктор;
@@ -13,15 +13,15 @@ catch(PDOException $e) {
 $id = 1;
 $id = $dbh->quote($id);
 // теперь $id будет с кавычками;
-
-$sql = '';  // текст запроса;
-$result = $dbh->query($sql);
-$result->setFetchMode(PDO::FETCH_CLASS, 'Cat');
-while($row = $result->fetch()) {
-  // в обьект $row класса Cat будут записаны данные с БД;
-  // названия обьектов в классе (переменных) должны называться также как и поля в таблице БД;
+// Простой запрос;
+$sql = 'SELECT * FROM tabl1';
+$sth = $dbh->query($sql);
+$m = [];
+while($row = $sth->fetch()) {
+  $m[] = $row;
 }
-
+var_dump($m[0]['Название товара']);
+/*
 // или:
 $result = $dbh->prepare($sql);  // запрос с подстановкой;
 $result->bindParam(':к чему подставить', 'что подставить', PDO::PARAM_INT);
@@ -41,3 +41,4 @@ catch(PDOException $e) {
   echo 'Ошибка' . $e->getMessage();
   $dbh->rollBack();  // откат трансакции;
 }
+*/

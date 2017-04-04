@@ -13,6 +13,8 @@ catch(PDOException $e) {
 $id = 1;
 $id = $dbh->quote($id);
 // теперь $id будет с кавычками;
+
+/*
 // Простой запрос;
 $sql = 'SELECT * FROM tabl1';
 $sth = $dbh->query($sql);
@@ -21,12 +23,18 @@ while($row = $sth->fetch()) {
   $m[] = $row;
 }
 var_dump($m[0]['Название товара']);
-/*
-// или:
-$result = $dbh->prepare($sql);  // запрос с подстановкой;
-$result->bindParam(':к чему подставить', 'что подставить', PDO::PARAM_INT);
-$result->execute();  // выполнение запроса;
 
+*/
+// Запрос с последовательной подстановкой;
+$sql = "SELECT * FROM tabl1 WHERE id=?";
+$sth = $dbh->prepare($sql);
+$a = 4;
+$sth->execute([$a]);
+while ($row = $sth->fetch(PDO::FETCH_NUM)) {
+  var_dump($row);
+}
+
+/*
 // Трансакции;
 // Изменений в БД не будет, пока не будет завершена трансакция;
 try {

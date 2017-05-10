@@ -9,6 +9,11 @@ if(is_uploaded_file($_FILES['image']['tmp_name'])) {
   $data = file_get_contents($img);
   $a = getimagesizefromstring($data);
   var_dump($a);
+  // Вывод изображения в браузер или в файл;
+  $image = imagecreatefromjpeg($img);
+  header('Content-Type: ' . image_type_to_mime_type(IMAGETYPE_WBMP));
+  image2wbmp($image); // вывод потока
+  imagedestroy($image);
 } else {
   echo 'Ничего нет!';
   exit;

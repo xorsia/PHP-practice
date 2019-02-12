@@ -9,7 +9,7 @@ require_once $p;
 $loader = new Load();
 spl_autoload_register([$loader, 'loadclass']);
 
-// Reflection API
+// Reflection API of Class
 $a = new ReflectionClass('Avrelii');
 echo $a->getName() . "<br>";
 $b0 = $a->isUserDefined();

@@ -6,9 +6,9 @@ class Mark {
     $this->a1 += 3;
     echo "<br>" . $this->a1;
     // Выкину исключение;
-    if(!isset($tr)) {
+    /*if(!isset($tr)) {
       throw new FileEr('Нет данных');
-    }
+    }*/
   }
   public function hi() {
     $this->yii();

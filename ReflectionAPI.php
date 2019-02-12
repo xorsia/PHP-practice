@@ -1,6 +1,7 @@
 <?php
 // Подключение через Composer;
-require_once __DIR__ . '\New-Modules\vendor\autoload.php';
+// require_once __DIR__ . '\New-Modules\vendor\autoload.php';
+// Одна точка подключения, а далее можно использовать любые классы подключенных фреймворков, движков, шаблонизаторов, модулей;
 
 /* Обычная автозагрузка с исп. ООП */
 $p = __DIR__ . '\load.php';
@@ -28,4 +29,5 @@ $b13 = $a->getConstants();
 
 var_dump($b13);
 
+phpinfo();
 

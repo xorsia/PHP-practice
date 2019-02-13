@@ -60,7 +60,7 @@ function methodData(ReflectionMethod $m2) {
 /* Прочитать код метода */
 class ReflectionUtil {
     static function GMS(ReflectionMethod $m) {
-        $lines = @file($m->getFileName());
+        $lines = @file($m->getFileName());  // фактически здесь уже есть весь код класса, а нужно извлечь только код конкретного метода;
         $from = $m->getStartLine();
         $to = $m->getEndLine();
         $len = $to - $from + 1;
@@ -71,29 +71,3 @@ class ReflectionUtil {
 $method = $a->getMethod('ps');
 //var_dump($method);
 echo ReflectionUtil::GMS($method);
-
-
-
-
-
-
-/*echo $a->getName() . "<br>";
-$b0 = $a->isUserDefined();
-$b1 = $a->isInternal();
-$b2 = $a->isInterface();
-$b3 = $a->isAbstract();
-$b4 = $a->isFinal();
-$b5 = $a->isCloneable();
-$b6 = $a->isInstantiable();
-$b7 = $a->getFileName();
-$b8 = $a->getStartLine();
-$b9 = $a->getEndLine();
-$b10 = $a->getProperties();         // название класса и его родителя;
-$b11 = @file($a->getFileName());    // массив всех строк;
-$b12 = Reflection::export($a);
-$b13 = $a->getConstants();
-
-var_dump($b13);
-
-phpinfo();*/
-

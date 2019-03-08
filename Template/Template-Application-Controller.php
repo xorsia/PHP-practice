@@ -3,7 +3,7 @@
 class Controller {
     // Сюда будет записываться одноим. об. кл.
     private $applicationHelper;
-    public static $instance;
+    private static $instance;
     // Закрытый конструктор, чтобы нельзя было создать альтернативный контроллер
     private function __construct() {}
 
@@ -62,3 +62,7 @@ class Controller {
         exit;
     }
 }
+
+// В самом верху файлов-иерархии:
+require Controller.php;
+Controller::run();

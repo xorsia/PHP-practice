@@ -3,17 +3,17 @@
 class Controller {
     // Сюда будет записываться одноим. об. кл.
     private $applicationHelper;
-
+    public static $instance;
     // Закрытый конструктор, чтобы нельзя было создать альтернативный контроллер
     private function __construct() {}
 
     // Запуск класса, создание об. кл.
     static function run() {
-        $instance = new Controller();
+        self::$instance = new Controller();
         // Выполняется при запуске приложения;
-        $instance->init();
+        self::$instance->init();
         // Вып. при каждом запросе пользователя;
-        $instance->handleRequest();
+        self::$instance->handleRequest();
     }
 
     // При запуске приложения, проверка файла конфигурации, также получение данных с кл. ApplicationRegistry;

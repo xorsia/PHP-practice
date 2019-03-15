@@ -26,7 +26,7 @@ class Controller {
         // ApplicationHelper - будет проводить операции сравнения, вызывая методы ApplicationRegistry, например:
         // указывать какой об. кл. создать, что считать, что записать;
 
-        // Если в кеш-памяти ControllerMap - ничего нет, то счит. данные конфиг. с файла и записываются в ControllerMap,
+        // Если в кеш-памяти ControllerMap - ничего нет, то счит. данные конфиг. с файла и записываются в ControllerMap
         $this->applicationHelper = ApplicationHelper::instance();
         // Этот метод выполнится один раз, при запуске, при пустых св. об. кл. ControllerMap,
         // в противном случаи, проверка файла и его считывание, с использованием ApplicationRegistry не будут проводится,
